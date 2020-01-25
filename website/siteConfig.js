@@ -21,8 +21,8 @@ const users = [
 ];
 
 const siteConfig = {
-  title: "Ning Wang's projects", // Title for your website.
-  tagline: 'A website for testing',
+  title: "Ning Wang", // Title for your website.
+  tagline: 'Portfolio',
   url: 'https://ning-is-peace.github.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -73,7 +73,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} Ning`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.

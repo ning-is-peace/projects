@@ -1,6 +1,6 @@
 ---
 id: p2p
-title: Design of a simple P2P framework on C++
+title: A simple P2P framework on C++
 sidebar_label: C++ P2P framework
 ---
 
