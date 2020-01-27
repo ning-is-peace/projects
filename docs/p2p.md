@@ -8,12 +8,12 @@ sidebar_label: C++ P2P framework
 
 There is a need to develop LAN based peer-to-peer (p2p) games. A library is needed to support the development of p2p games.
 
-### General requirement from a game developer’s view
+### Requirement from a game developer’s view
 
  Games will run on Android devices and Linux devices. For some Linux devices, customized compiler is developed and they may not support C++11.
 There is no center server.
 Different games could be supported, such as chess, blackjack, action games, role play etc.
-#### Use case
+#### Use cases
 There a 2 different roles when one player tries to play a p2p game with another player or other players. One (creator) needs to create a game and then others (joiner) can join the game. Typical use cases of certain p2p game are illustrated as bellow. Most of the expectations of the 2 roles differ, but some of them overlap.
 
 ![Use Case](assets/p2p/use_case.png)
@@ -51,13 +51,15 @@ GameApp only depends on the P2PService component.
 ![Threading](assets/p2p/threading.png)
 Both server and client have one UI thread for interacting with player and one TCP thread for sending and receiving game data. Client has one UDP thread for receiving game information before game start. Server doesn’t have such need. The receiving of game information broadcast is blocking, but the broadcasting is non-blocking.
 ### Interface design
+![Class interfaces](assets/p2p/classes.png)
 
-## Usage
+All the interfaces of P2PService are made static. The managing of instances is hidden in the P2P module.
+## Usages
 Generally, when developing a p2p game, one needs to do the following work to have the p2p mechanism going:
 - Implement and manage different message types and message IDs.
 - Implement and register callbacks to message ID
 - Call P2PService’s API to update game state
-## Issue
+## Issues
 This is only a simple implementation of a p2p game toolkit. As they say, keep it simple. How ever, there may be some improvements worth mentioning.
 - When the game creator exits the game, the other players are also forced to exit the game. This cannot be resolved easily without a center server.
 - Messages need to be synchronized among all playing players. Currently, when server is suspended (for example, when the game goes to background), the message relay is suspended (the reason is that the game process is suspended); when client is suspended, other players can continue playing, and when the suspension is resumed, all the messages in the queue are handled one after another without delay. There may be two refinements on this:
@@ -67,4 +69,4 @@ This is only a simple implementation of a p2p game toolkit. As they say, keep it
 3 games are developed and published based on this library. 
 - Chess: A 2-players game with one against the other. Regretting, surrendering, draw requesting, and confirmation are supported.
 - Landlord poker game: A popular gamble game of 3 players with 2 against 1. 
-- Bomber: A role play strategy and action game with 2, 3, or 4 players against each other. When one player’s role dies, the player can stay in the game to watch others playing, or exit the game and others can continue playing with each other.
+- Bomber: A role play strategy and action game with 2, 3, or 4 players against each other. When one player’s role dies, the player can stay in the game to watch others playing, or exit the game and others can continue playing with each other if the host is still in the game.

@@ -22,13 +22,13 @@ Upon request of a new game, different copies of games are developed on different
 
 #### Legacy game components and dependencies
 
-![](assets/unified-engine/legacy-development-management.png)
+![Legacy game components](assets/unified-engine/legacy-development-management.png)
 
 #### Legacy game development procedure
 
-![](assets/unified-engine/legacy-development.png)
+![Legacy game development](assets/unified-engine/legacy-development.png)
 
-#### Problem of legacy game development procedure
+#### Problems of legacy game development procedure
 - It’s inefficient and boring to work on one game for several times.
 - The effort to maintain a game is painful and time consuming. For example, if a bug is found in one version of the game, it needs to be fixed for all versions.
 - It severely violates the “Donot Repeat Yourself (DRY)” idiom which is a well-known practice of programming.
@@ -37,7 +37,7 @@ Upon request of a new game, different copies of games are developed on different
 
 ### Legacy delivery procedure
 The delivery procedure can be illustrated as bellow.
-![](assets/unified-engine/legacy-game-delivery-procedure.png)
+![Legacy delivery procedure](assets/unified-engine/legacy-game-delivery-procedure.png)
 The building of games depends on the building of all possible combinations of CPU architecture, rendering technique, audio support and runtime API. These are all sequentially dependent. Therefore, at most there can be 2(CPU architectures) * 3(audio) * 3(rendering) * 4(runtime API) = 48 builds of game dependencies, as illustrated bellow.
 | CPU arch |	Audio	| Rendering	| Runtime |	Total |
 | :---: | :---: | :---: | :---: | :---: |
@@ -50,26 +50,26 @@ The problems are:
 
 ## Solution
 The components are refactored to the following structure. Most of the implementations are put to separate dynamically loaded modules, as illustrated bellow.
-![ ](assets/unified-engine/refined-game-management.png)
+![Refined game components](assets/unified-engine/refined-game-management.png)
 ### Refined game development
 Only one copy of game code is developed based on refined cocos2dx-1.
-![ ](assets/unified-engine/refined-development.png)
+![Refined game development](assets/unified-engine/refined-development.png)
 ### Refined delivery procedure
-![ ](assets/unified-engine/refined-delivery-procedure.png)
+![Refined delivery procedure](assets/unified-engine/refined-delivery-procedure.png)
 In the refined delivery procedure illustrated above, the building of games doesn’t depend on building of dependencies. Also, there is no sequential dependence among the rendering support, audio support and runtime support. The game dependencies and games are composed so as to run in the release step.
 
 ## Realization
 
 ### Classes
 Cocos2dx-1 engine is refined to support APIs. Three API interfaces are added, namely IRuntimePort, IRenderPort and IAudioPort. Also, a singleton ApiMananer is added to manage the implementations of the interfaces. Each implementation is built to a dynamically loaded library.
-![](assets/unified-engine/classes.png)
+![Classes](assets/unified-engine/classes.png)
 ### Sequences
 
 ### Loading of modules
-![](assets/unified-engine/loading_of_dependencies.png)
+![Loading of modules](assets/unified-engine/loading_of_dependencies.png)
 ## Analysis of the refinement
 ### Improvement
-1. The game development and maintenance if highly improved. Currently, 3 engines are supported, so the refined is 3 times more efficient than the legacy method.
+1. The game development and maintenance is highly improved. Currently, 3 engines are supported, so the refined is 3 times more efficient than the legacy method.
 2. The building procedure is more efficient and more robust. If there is a bug in certain module, only that module has to be rebuilt. The refined building time of a delivery is about an hour.
 3. The test is more efficient. Since the game dependencies are dynamically decided, with modifiable configuration, the tester can test with different configurations without having to build another binary.
 4. Support of new requirement is much easier. Just add a new module.
