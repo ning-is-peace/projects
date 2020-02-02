@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: "Ning Wang", // Title for your website.
-  tagline: 'Portfolio',
+  tagline: "I've been a developer since 2011.",
   url: 'https://ning-is-peace.github.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -32,6 +32,9 @@ const siteConfig = {
   // Used for publishing and more
   projectName: 'ning-is-peace.github.io',
   organizationName: 'ning-is-peace',
+  disableHeaderTitle: true,
+  disableTitleTagline: false,
+  docsSideNavCollapsible: false,
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -73,7 +76,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Ning`,
+  //copyright: `Copyright © ${new Date().getFullYear()} Ning`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -81,7 +84,7 @@ const siteConfig = {
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: [/*'https://buttons.github.io/buttons.js', */"/js/modify_header.js"],
 
   // On page navigation for the current documentation page.
   onPageNav: 'separate',

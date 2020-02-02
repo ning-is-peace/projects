@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Design": ["p2p", "unified-engine"]
+    "Design Samples": ["p2p", "unified-engine"]
   },
   "docs-other": {
     "First Category": ["doc4", "doc5"]

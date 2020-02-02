@@ -1,7 +1,7 @@
 ---
 id: unified-engine
-title: Unified game engine on Linux
-sidebar_label: Unified game engine
+title: Unified Game Engine on Linux
+sidebar_label: Unified Game Engine
 ---
 
 ## Problem

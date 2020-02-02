@@ -1,12 +1,12 @@
 ---
 id: p2p
-title: A simple P2P framework on C++
-sidebar_label: C++ P2P framework
+title: A Simple P2P Framework on C++
+sidebar_label: C++ P2P Framework
 ---
 
 ## Scenario
 
-There is a need to develop LAN based peer-to-peer (p2p) games. A library is needed to support the development of p2p games.
+There is a need to develop LAN based peer-to-peer (p2p) games. A library is needed to support the development of p2p games. This is the design of the p2p framework.
 
 ### Requirement from a game developer’s view
 
@@ -21,9 +21,10 @@ There a 2 different roles when one player tries to play a p2p game with another 
 One game joiner may not need to be notified when another joiner has left when waiting for a game to start.
 ### Requirement added from a library developer’s view
 1. C++: Since it has to support both Android and Linux.
-2. Minimum dependency: Since there are different issues of Linux and some of them are issued decades ago. Heavy dependencies may corrupt some day.
-3. Concise and clean API
-4. Keep it simple
+2. Minimum dependency: Since there are different issues of Linux and some of them are issued decades ago. Heavy dependencies may not compile to certain Linux.
+3. Concise and clean API.
+4. Keep it simple.
+5. Keep dependency transparent to library user.
 
 ## Design
 

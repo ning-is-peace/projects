@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Portfolio",
+    "tagline": "I've been a developer since 2011.",
     "docs": {
       "doc1": {
         "title": "Latin-ish",
@@ -22,17 +22,17 @@
         "title": "Fifth Document"
       },
       "p2p": {
-        "title": "A simple P2P framework on C++",
-        "sidebar_label": "C++ P2P framework"
+        "title": "A Simple P2P Framework on C++",
+        "sidebar_label": "C++ P2P Framework"
       },
       "unified-engine": {
-        "title": "Unified game engine on Linux",
-        "sidebar_label": "Unified game engine"
+        "title": "Unified Game Engine on Linux",
+        "sidebar_label": "Unified Game Engine"
       }
     },
     "links": {},
     "categories": {
-      "Design": "Design",
+      "Design Samples": "Design Samples",
       "First Category": "First Category"
     }
   },
